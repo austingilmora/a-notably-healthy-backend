@@ -15,6 +15,7 @@ const doctorController = {
 
     getDoctorById({ params }, res) {
         Doctor.findById({ _id: params.id })
+            .populate('appointments')
             .select('-__v')
             .then(dbDoctorData => {
                 if (!dbDoctorData) {

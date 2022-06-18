@@ -8,6 +8,7 @@ const DoctorSchema = new Schema({
     },
     doctorEmail: {
         type: String,
+        unique: true,
         required: "Please enter the doctor's email",
         match: [/.+@.+\..+/, 'Must match an email address!']
     },
