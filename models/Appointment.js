@@ -19,6 +19,13 @@ const AppointmentSchema = new Schema({
         required: 'Please select an appointment time. Appointments are available every 15 minutes',
         get: (appointmentTimeAndDateVal => dateFormat(appointmentTimeAndDateVal))
     }
+    
+},
+{
+    toJSON: {
+        getters: true
+    },
+    id: false
 });
 
 const Appointment = model('Appointment', AppointmentSchema);

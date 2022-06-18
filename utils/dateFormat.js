@@ -17,9 +17,13 @@ const dateFormat = timestamp => {
 
   var minute = (Math.ceil((date.getMinutes())/15) *15) % 60
 
+  if (minute === 0) {
+    hour += 1
+  }
+
   const periodOfDay = date.getHours() >= 12 ? 'pm' : 'am';
 
-  var formattedDate = month+' '+day+', '+year+' at '+hour + ':' + minute.substr(-2) + periodOfDay;
+  var formattedDate = month+' '+day+', '+year+' at '+hour + ':' + minute + periodOfDay;
 
   return formattedDate;
 };
